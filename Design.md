@@ -1,5 +1,4 @@
 - Bài đặc biệt giới thiệu về CLB
-- Chủ nhiệm có nên trong relation members?
 - Làm front end post bài viết giống như Medium.com
 
 ### MVC and MERN
