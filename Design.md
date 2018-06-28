@@ -53,7 +53,7 @@ CRUD
 - URI : /api/articles/:id
 
   - GET -> /api/articles/:id = read one article
-  - PUT -> /api/articles/:id = update one article
+  - PATCH -> /api/articles/:id = update one article
   - DELETE -> /api/articles/:id = delete one article
 
 - URI : /api/projects
@@ -64,7 +64,7 @@ CRUD
 - URI : /api/projects/:id
 
   - GET -> /api/projects/:id = read one project
-  - PUT -> /api/projects/:id = update one project
+  - PATCH -> /api/projects/:id = update one project
   - DELETE -> /api/projects/:id = delete one project
 
 - URI : /api/leaders
@@ -75,7 +75,7 @@ CRUD
 - URI : /api/leaders/:title (Vice President => vice_president)
 
   - GET -> /api/leaders/:title = read one leader
-  - PUT -> /api/leaders/:title = update one leader
+  - PATCH -> /api/leaders/:title = update one leader
   - DELETE -> /api/leaders/:title = delete one leader
 
 - URI : /api/events
@@ -85,7 +85,7 @@ CRUD
 
 - URI : /api/events/:id
   - GET -> /api/events/:id = read one event
-  - PUT -> /api/events/:id = update one event
+  - PATCH -> /api/events/:id = update one event
   - DELETE -> /api/events/:id = delete one event
 
 ### 4. Cooked Dat

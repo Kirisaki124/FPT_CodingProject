@@ -1,48 +1,56 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-const articleController = require('./controller')
+const articleController = require('./controller');
 
 router.post('/', (req, res) => {
-    articleController
-        .createArticle(req.body)
-        .then(id => res.send(id))
-        .catch(err => console.log(err))
-})
+  articleController
+    .createArticle(req.body)
+    .then(id => res.send(id))
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
 
 router.get('/', (req, res) => {
-    articleController
-        .getAllArticle(data => console.log('function ' + data))
-        .then(data => res.send(data))
-        .catch(err => console.log(err))
-})
+  articleController
+    .getAllArticle(req.query.page > 0 ? req.query.page : 1)
+    .then(data => res.send(data))
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
 
-router.put('/:id/content', (req, res) => {
-    articleController
-        .updateContent(req.params.id, req.body.content)
-        .then(id => res.send(id))
-        .catch(err => console.log(err))
-}) 
-
-router.put('/:id/title', (req, res) => {
-    articleController
-        .updateTitle(req.params.id, req.body.content)
-        .then(id => res.send(id))
-        .catch(err => console.log(err))
-}) 
-
-router.put('/:id/description', (req, res) => {
-    articleController
-        .updateDescription(req.params.id, req.body.content)
-        .then(id => res.send(id))
-        .catch(err => console.log(err))
-}) 
+router.get('/:id', (req, res) => {
+  articleController
+    .getOneArticle(req.params.id)
+    .then(data => res.send(data))
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
 
 router.delete('/:id', (req, res) => {
-    articleController
-        .deleteArticle(req.params.id)
-        .then(data => res.send(data))
-        .catch(err => console.log(err))
-})
+  articleController
+    .deleteArticle(req.params.id)
+    .then(data => res.send(data))
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
 
-module.exports = router
+router.patch('/:id', (req, res) => {
+  articleController
+    .updateOneArticle(req.params.id, req.body)
+    .then(data => res.send(data))
+    .catch(err => {
+      console.error(err);
+      res.status(500).send(err);
+    });
+});
+
+module.exports = router;
