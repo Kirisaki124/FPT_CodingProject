@@ -1,0 +1,5 @@
+- post (thiếu/đủ components)
+- read all với phân trang
+- read one
+- patch
+- delete

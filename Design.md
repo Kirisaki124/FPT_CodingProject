@@ -9,14 +9,16 @@
 
   - title
   - description
+  - content
   - createdBy
-  - content : []
+  - active
 
 - Projects
 
   - title
-  - teamName
+  - team
   - introUrl
+  - active
 
 - Leaders (reference http://www.adclub.org/The-Team)
 
@@ -25,7 +27,7 @@
   - phoneNumber
   - active (DELETE phải đi kèm với POST)
 
-* Events (reference http://www.adclub.org/events)
+- Events (reference http://www.adclub.org/events)
   - title
   - description
   - imageUrl
@@ -33,6 +35,7 @@
     - startAt
     - finishAt
   - articleUrl
+  - active
 
 ### 2. Controller
 
@@ -70,7 +73,7 @@ CRUD
 - URI : /api/leaders
 
   - POST -> /api/leaders = create new leader
-  - GET -> /api/leaders = read all leaders
+  - GET -> /api/leaders?page = read all leaders
 
 - URI : /api/leaders/:title (Vice President => vice_president)
 

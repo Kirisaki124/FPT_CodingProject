@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const articleController = require('./controller');
+const projectController = require('./controller');
 
 router.post('/', (req, res) => {
-  articleController
-    .createArticle(req.body)
+  projectController
+    .createProject(req.body)
     .then(id => res.send(id))
     .catch(err => {
       console.error(err);
@@ -14,8 +14,8 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  articleController
-    .getAllArticles(req.query.page > 0 ? req.query.page : 1)
+  projectController
+    .getAllProjects(req.query.page > 0 ? req.query.page : 1)
     .then(data => res.send(data))
     .catch(err => {
       console.error(err);
@@ -24,8 +24,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  articleController
-    .getOneArticle(req.params.id)
+  projectController
+    .getOneProject(req.params.id)
     .then(data => res.send(data))
     .catch(err => {
       console.error(err);
@@ -34,8 +34,8 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  articleController
-    .deleteOneArticle(req.params.id)
+  projectController
+    .deleteOneProject(req.params.id)
     .then(data => res.send(data))
     .catch(err => {
       console.error(err);
@@ -44,8 +44,8 @@ router.delete('/:id', (req, res) => {
 });
 
 router.patch('/:id', (req, res) => {
-  articleController
-    .updateOneArticle(req.params.id, req.body)
+  projectController
+    .updateOneProject(req.params.id, req.body)
     .then(data => res.send(data))
     .catch(err => {
       console.error(err);
