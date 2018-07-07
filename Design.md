@@ -25,15 +25,13 @@
   - name
   - title
   - phoneNumber
-  - active (DELETE phải đi kèm với POST)
+  - term
 
 - Events (reference http://www.adclub.org/events)
   - title
   - description
   - imageUrl
   - date
-    - startAt
-    - finishAt
   - articleUrl
   - active
 
@@ -79,7 +77,6 @@ CRUD
 
   - GET -> /api/leaders/:title = read one leader
   - PATCH -> /api/leaders/:title = update one leader
-  - DELETE -> /api/leaders/:title = delete one leader
 
 - URI : /api/events
 
