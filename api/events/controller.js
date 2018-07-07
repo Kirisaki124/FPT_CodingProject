@@ -1,7 +1,9 @@
 const eventModel = require('./model');
+const moment = require('moment');
 
 const createEvent = obj =>
   new Promise((resolve, reject) => {
+    obj.date = new Date(obj.date);
     eventModel
       .create(obj)
       .then(leader => resolve(leader))
