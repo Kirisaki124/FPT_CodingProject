@@ -5,14 +5,6 @@
 
 ### 1. Collections / Model
 
-- Articles
-
-  - title
-  - description
-  - content
-  - createdBy
-  - active
-
 - Projects
 
   - title
@@ -30,9 +22,9 @@
 - Events (reference http://www.adclub.org/events)
   - title
   - description
-  - imageUrl
+  - image
   - date
-  - articleUrl
+  - articleId
   - active
 
 ### 2. Controller
@@ -45,17 +37,6 @@ CRUD
 - Delete - Never really delete item: delete action = set Active to false
 
 ### 3. Route / RESTful
-
-- URI : /api/articles
-
-  - POST -> /api/articles = create new article
-  - GET -> /api/articles?pages = read all articles
-
-- URI : /api/articles/:id
-
-  - GET -> /api/articles/:id = read one article
-  - PATCH -> /api/articles/:id = update one article
-  - DELETE -> /api/articles/:id = delete one article
 
 - URI : /api/projects
 

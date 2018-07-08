@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const articleRouter = require('./api/articles/router');
 const projectRouter = require('./api/projects/router');
 const leaderRouter = require('./api/leaders/router');
 const eventRouter = require('./api/events/router');
@@ -22,7 +21,6 @@ mongoose.connect(
   }
 );
 
-app.use('/api/articles', articleRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/leaders', leaderRouter);
 app.use('/api/events', eventRouter);

@@ -4,7 +4,6 @@ const fs = require("fs")
 
 const createEvent = ({title, description, date, articleUrl, imageFile}) =>
   new Promise((resolve, reject) => {
-    // obj.date = new Date(obj.date);
     eventModel
       .create({
           image: fs.readFileSync(imageFile.path),
