@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const multer = require("multer")
+const upload = multer({dest: "uploads/"})
 
 const eventController = require('./controller');
 
-router.post('/', (req, res) => {
+router.post('/', upload.single("image") ,(req, res, next) => {
+  req.body.imageFile = req.file
+  
   eventController
     .createEvent(req.body)
     .then(id => res.send(id))
@@ -32,6 +36,15 @@ router.get('/:id', (req, res) => {
       res.status(500).send(err);
     });
 });
+
+router.get("/:id/data", (req, res) => {
+  eventController
+    .getImageData(req.params.id)
+    .then(data => {
+      res.contentType(data.contentType)
+      res.send(data.image)
+    })
+})
 
 router.delete('/:id', (req, res) => {
   eventController

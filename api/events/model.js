@@ -4,17 +4,8 @@ const Schema = mongoose.Schema;
 const eventModel = new Schema({
   title: { type: String, required: true },
   description: { type: String, default: '' },
-  imageUrl: {
-    type: String,
-    default: '',
-    validate: {
-      validator: function(value) {
-        const regex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
-        return regex.test(value);
-      },
-      message: '{VALUE} is not a valid url!'
-    }
-  },
+  image: {type: Buffer},
+  contentType: {type: String},
   date: { type: Date, required: true },
   articleUrl: {
     type: String,

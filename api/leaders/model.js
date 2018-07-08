@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const leaderModel = new Schema({
   title: { type: String, required: true },
-  description: { type: String, default: '' },
+  term: { type: String, required: true },
+  year: { type: Number },
   name: { type: String, required: true },
   phoneNumber: {
     type: String,

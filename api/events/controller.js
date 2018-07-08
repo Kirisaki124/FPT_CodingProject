@@ -1,14 +1,35 @@
 const eventModel = require('./model');
 const moment = require('moment');
+const fs = require("fs")
 
-const createEvent = obj =>
+const createEvent = ({title, description, date, articleUrl, imageFile}) =>
   new Promise((resolve, reject) => {
-    obj.date = new Date(obj.date);
+    // obj.date = new Date(obj.date);
     eventModel
-      .create(obj)
-      .then(leader => resolve(leader))
+      .create({
+          image: fs.readFileSync(imageFile.path),
+          contentType: imageFile.mimetype,
+          title,
+          description,
+          date,
+          articleUrl
+        })
+      .then(event => resolve(event))
       .catch(err => reject(err));
   });
+
+const getImageData = (id) => 
+  new Promise((resolve, reject) => {
+    eventModel
+      .findOne({
+        active: true,
+        _id: id
+      })
+      .select("image contentType")
+      .exec()
+      .then(data => resolve(data))
+      .catch(err => reject(err))
+  })
 
 const getAllEvents = page =>
   new Promise((resolve, reject) => {
@@ -18,7 +39,7 @@ const getAllEvents = page =>
       .limit(10)
       .select('_id title description date aricleUrl')
       .exec()
-      .then(leader => resolve(leader))
+      .then(event => resolve(event))
       .catch(err => reject(err));
   });
 
@@ -28,7 +49,7 @@ const getOneEvent = id =>
       .find({ _id: id, active: true })
       .select('_id title description date aricleUrl')
       .exec()
-      .then(leader => resolve(leader))
+      .then(event => resolve(event))
       .catch(err => reject(err));
   });
 
@@ -53,5 +74,6 @@ module.exports = {
   getAllEvents,
   getOneEvent,
   updateOneEvent,
-  deleteOneEvent
+  deleteOneEvent,
+  getImageData
 };
