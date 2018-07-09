@@ -15,6 +15,8 @@
 - Leaders (reference http://www.adclub.org/The-Team)
 
   - name
+  - term 
+  - year
   - title
   - phoneNumber
   - term
@@ -23,8 +25,11 @@
   - title
   - description
   - image
+    - image file
+    - image type
   - date
-  - articleId
+  - content
+  - location
   - active
 
 ### 2. Controller

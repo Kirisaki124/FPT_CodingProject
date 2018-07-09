@@ -7,6 +7,8 @@ const eventModel = new Schema({
   image: {type: Buffer},
   contentType: {type: String},
   date: { type: Date, required: true },
+  content: { type: String, required: true},
+  location: { type: String },
   active: { type: Boolean, default: true }
 });
 
