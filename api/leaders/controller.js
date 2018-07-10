@@ -14,7 +14,7 @@ const getAllLeaders = page =>
       .find({ active: true })
       .skip((page - 1) * 10)
       .limit(10)
-      .select('_id name title description')
+      .select('_id name term year title phoneNumber')
       .exec()
       .then(leader => resolve(leader))
       .catch(err => reject(err));

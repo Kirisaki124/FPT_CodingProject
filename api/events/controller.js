@@ -1,5 +1,4 @@
 const eventModel = require('./model');
-const moment = require('moment');
 const fs = require("fs")
 
 const createEvent = ({title, description, date, articleUrl, imageFile, content, location}) =>
@@ -38,7 +37,7 @@ const getAllEvents = page =>
       .find({ active: true })
       .skip((page - 1) * 10)
       .limit(10)
-      .select('_id title description date aricleUrl')
+      .select('_id title description date aricleUrl location active')
       .exec()
       .then(event => resolve(event))
       .catch(err => reject(err));
@@ -48,7 +47,7 @@ const getOneEvent = id =>
   new Promise((resolve, reject) => {
     eventModel
       .find({ _id: id, active: true })
-      .select('_id title description date aricleUrl content location')
+      .select('_id title description date aricleUrl content location active')
       .exec()
       .then(event => resolve(event))
       .catch(err => reject(err));

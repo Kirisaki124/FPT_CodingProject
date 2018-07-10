@@ -19,7 +19,7 @@
   - year
   - title
   - phoneNumber
-  - term
+  - active
 
 - Events (reference http://www.adclub.org/events)
   - title
@@ -63,6 +63,7 @@ CRUD
 
   - GET -> /api/leaders/:title = read one leader
   - PATCH -> /api/leaders/:title = update one leader
+  - DELETE -> /api/leaders/:title = delete one leader
 
 - URI : /api/events
 
@@ -74,6 +75,6 @@ CRUD
   - PATCH -> /api/events/:id = update one event
   - DELETE -> /api/events/:id = delete one event
 
-### 4. Cooked Dat
+### 4. Cooked Data
 
-NOTHING TO COOK
+NOTHING COOK
